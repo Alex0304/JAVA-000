@@ -1,0 +1,63 @@
+public class com.weekwork.bytecode.ByteCodeTest {
+  public com.weekwork.bytecode.ByteCodeTest();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<in
+()V
+       4: aload_0
+       5: bipush        65
+       7: putfield      #2                  // Field count:I
+      10: return
+
+  public static void main(java.lang.String[]);//main 方法
+    Code:
+       0: new           #3                  // class com/weekwork/bytecode/
+odeTest
+       3: dup                 
+       4: invokespecial #4                  // Method "<init>":()V byteCodeTest的初始化方法init
+       7: astore_1                          //将栈顶引用类型值保存到局部变量1 即  ByteCodeTest 类
+       8: aload_1                           //从局部变量1中装载引用类型值入栈ByteCodeTest类
+       9: getstatic     #5                  // Field str:Ljava/lang/String; //获取ByteCodeTest类静态字段的值
+      12: invokevirtual #6                  // Method calNum:(Ljava/lang/St //调用对象byteCodeTest
+)I
+      15: pop
+      16: return
+
+  public int calNum(java.lang.String); //calNum 方法，返回int类型数据
+    Code:
+       0: aload_1                            //从局部变量1中装载引用类型值入栈静态常量str,入参的变量
+       1: invokevirtual #7                  // Method java/lang/String.getB 调用String.getBytes 方法
+()[B
+       4: astore_2                         //将栈顶引用类型值保存到局部变量2中
+       5: iconst_0                         //0(int)值入栈 int result = 0
+       6: istore_3                         //将栈顶int类型值保存到局部变量3中 result临时变量
+       7: aload_2                          //从局部变量2中装载引用类型值入栈byte数组
+       8: astore        4                 //将栈顶引用类型值保存到局部变量4中即bytes数组的引用
+      10: aload         4                 //从局部变量4中加载引用类型值入栈bytes
+      12: arraylength                     //获取一维数组bytes的长度
+      13: istore        5                 //将栈顶int类型值保存到局部变量5中,字符串的长度
+      15: iconst_0                        //0(int)值入栈 int i = 0
+      16: istore        6                 //将栈顶int类型值保存到局部变量6中 int i = 0
+      18: iload         6                 //从局部变量6装载int类型值入栈
+      20: iload         5                 //从局部变量5中装载int类型值入栈
+      22: if_icmpge     50            //比较局部变量6和局部变量5的大小，开始遍历：for(int i = 0;i<bytes.length;i++)若栈顶两int 类型值大于等于则跳转到50行
+      25: aload         4             //从局部变量4中装载引用类型值入栈bytes[]数组
+      27: iload         6             //从局部变量6中装载int类型变量入栈即i
+      29: baload                    //从byte类型数组中装载指定项的值（先转换为int类型值，后压栈）
+      30: istore        7           //将栈顶int类型值保存到局部变量7中,b = bytes[i]
+      32: iload         7           //从局部变量7中装载int类型入栈即 b
+      34: aload_0                   //从局部变量0中加载引用类型入栈即byteCodeTest对象
+      35: getfield      #2                  // Field count:I // 获取byteCodeTest 对象的成员变量count 的值
+      38: if_icmpne     44              //若栈顶两int类型值不相等则跳转到44：即count 与 b的大小
+      41: iinc          3, 1            //局部变量3,result加1
+      44: iinc          6, 1            //局部变量6加1，下一次循环；for(int i = 0;i<bytes.length;i++)
+      47: goto          18            //返回到18行执行
+      50: iload_3                     //从局部变量3中装载int类型值入栈
+      51: ireturn                     //返回result int结果
+
+  static {};
+    Code:
+       0: ldc           #8                  // String JAVA
+       2: putstatic     #5                  // Field str:Ljava/lang/String;
+       5: return
+}

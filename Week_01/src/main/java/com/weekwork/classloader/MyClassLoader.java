@@ -1,4 +1,4 @@
-package com.weekwork;
+package com.weekwork.classloader;
 
 
 import java.io.*;
@@ -8,8 +8,8 @@ import java.lang.reflect.Method;
 public class MyClassLoader extends ClassLoader{
 
 
-    private static final String FILE_PATH = "D:\\mycode\\jiketime\\JAVA-000\\Week_01\\demo\\Hello.xlass";
-    private static final String FILE_PATH1 = "D:\\mycode\\jiketime\\JAVA-000\\Week_01\\demo\\Hello.class";
+    private static final String FILE_PATH = "D:\\code\\JAVA-000\\Week_01\\demo\\Hello.xlass";
+    private static final String FILE_PATH1 = "D:\\code\\JAVA-000\\Week_01\\demo\\Hello.class";
 
     public static void main(String[] args) {
         MyClassLoader myClassLoader = new MyClassLoader();
