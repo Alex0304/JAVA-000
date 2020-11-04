@@ -1,0 +1,4 @@
+application:
+  name: chenhuan
+server:
+  port: 8081

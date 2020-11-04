@@ -1,4 +1,4 @@
-package com.weekwork.nio;
+package com.weekwork.netty;
 
 
 import io.netty.bootstrap.ServerBootstrap;
@@ -14,11 +14,8 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.ssl.SslContext;
 import io.netty.handler.ssl.util.SelfSignedCertificate;
-import jdk.internal.org.objectweb.asm.tree.TryCatchBlockNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.security.cert.CertificateException;
 
 public class HttpServer {
 

@@ -1,4 +1,4 @@
-package com.weekwork.nio;
+package com.weekwork.netty;
 
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFutureListener;
@@ -40,7 +40,7 @@ public class HttpHandler extends ChannelInboundHandlerAdapter {
     private void handlerTest(FullHttpRequest fullRequest, ChannelHandlerContext ctx) {
         FullHttpResponse response = null;
         try {
-            String value = "hello,nio";
+            String value = "hello,netty";
             response = new DefaultFullHttpResponse(HTTP_1_1, HttpResponseStatus.OK, Unpooled.wrappedBuffer(value.getBytes("UTF-8")));
             response.headers().set("Content-Type", "application/json");
             response.headers().setInt("Content-Length", response.content().readableBytes());

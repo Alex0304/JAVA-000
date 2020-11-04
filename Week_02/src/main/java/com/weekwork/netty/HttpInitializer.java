@@ -1,4 +1,4 @@
-package com.weekwork.nio;
+package com.weekwork.netty;
 
 
 import io.netty.channel.ChannelInitializer;

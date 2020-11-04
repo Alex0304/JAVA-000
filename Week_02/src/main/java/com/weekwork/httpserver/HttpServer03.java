@@ -1,4 +1,4 @@
-package com.weekwork.io;
+package com.weekwork.httpserver;
 
 
 import java.io.IOException;
@@ -34,7 +34,7 @@ public class HttpServer03 {
             printWriter.println("HTTP/1.1 200 OK");
             printWriter.println("Content-Type:text/html;charset=utf-8");
             printWriter.println();
-            printWriter.write("hello,nio");
+            printWriter.write("hello,netty");
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (IOException e) {

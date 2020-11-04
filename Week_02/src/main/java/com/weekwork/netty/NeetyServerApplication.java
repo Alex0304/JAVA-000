@@ -1,4 +1,4 @@
-package com.weekwork.nio;
+package com.weekwork.netty;
 
 public class NeetyServerApplication {
     public static void main(String[] args) {
