@@ -4,8 +4,6 @@ import cn.hutool.core.map.MapUtil;
 import com.weekwork.io.gateaway.filter.HttpRequestFilter;
 import com.weekwork.io.gateaway.filter.HttpRequestFilterImpl;
 import com.weekwork.io.gateaway.outbound.httpclient.HttpOutboundHandler;
-import com.weekwork.io.gateaway.outbound.netty.NettyHttpClient;
-import com.weekwork.io.gateaway.rounter.HttpEndpointRouter;
 import com.weekwork.io.gateaway.rounter.HttpEndpointRouterImpl;
 import com.weekwork.io.gateaway.rounter.Loadbalancer;
 import com.weekwork.io.gateaway.util.HttpClientUtil;
@@ -43,7 +41,6 @@ public class HttpInboundHandler extends ChannelInboundHandlerAdapter {
 
     public HttpInboundHandler(String proxyServer) throws IOException {
         this.proxyServer = proxyServer;
-        //handler = new HttpOutboundHandler(this.proxyServer);
         this.filter = new HttpRequestFilterImpl();
         this.loadbalancer = new Loadbalancer(new HttpEndpointRouterImpl());
     }
@@ -57,10 +54,8 @@ public class HttpInboundHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         try {
             FullHttpRequest fullRequest = (FullHttpRequest) msg;
-            //remoteHandlerTest(fullRequest,ctx);
-           /* NettyHttpClient nettyHttpClient = new NettyHttpClient("127.0.0.1",8080);
-            nettyHttpClient.connect(fullRequest);*/
-            filterTest(fullRequest,ctx);
+            httpclientRequest(fullRequest, ctx);
+            filterRequest(fullRequest, ctx);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -68,17 +63,17 @@ public class HttpInboundHandler extends ChannelInboundHandlerAdapter {
         }
     }
 
-    private void filterTest(FullHttpRequest fullRequest, ChannelHandlerContext ctx){
-        filter.filter(fullRequest,ctx);//请求过滤器链
+    private void filterRequest(FullHttpRequest fullRequest, ChannelHandlerContext ctx) {
+        filter.filter(fullRequest, ctx);//请求过滤器链
         //从后端服务中选择一个可用的服务
         String server = loadbalancer.loadbalance();
-        remoteHandlerTest(fullRequest,ctx, MapUtil.of("nio",fullRequest.headers().get("nio")),server);
+        httpclientRequest(fullRequest, ctx, MapUtil.of("nio", fullRequest.headers().get("nio")), server);
     }
 
-    private void remoteHandlerTest(FullHttpRequest fullRequest, ChannelHandlerContext ctx, Map<String,String> headers,String server) {
+    private void httpclientRequest(FullHttpRequest fullRequest, ChannelHandlerContext ctx, Map<String, String> headers, String server) {
         FullHttpResponse response = null;
         try {
-            String result = HttpClientUtil.get(fullRequest.uri(),headers,server);
+            String result = HttpClientUtil.get(fullRequest.uri(), headers, server);
             response = new DefaultFullHttpResponse(HTTP_1_1, OK, Unpooled.wrappedBuffer(result.getBytes("UTF-8")));
             response.headers().set("Content-Type", "application/json");
         } catch (Exception e) {
@@ -98,11 +93,13 @@ public class HttpInboundHandler extends ChannelInboundHandlerAdapter {
     }
 
 
-    private void remoteHandlerTest(FullHttpRequest fullRequest, ChannelHandlerContext ctx) {
-        remoteHandlerTest(fullRequest,ctx,null,"127.0.0.1:8080");
+    private void httpclientRequest(FullHttpRequest fullRequest, ChannelHandlerContext ctx) {
+        httpclientRequest(fullRequest, ctx, null, "127.0.0.1:8081");
     }
 
 
+    private void nettyRemoteRequest(FullHttpRequest request, ChannelHandlerContext ctx) throws InterruptedException {
 
+    }
 
 }

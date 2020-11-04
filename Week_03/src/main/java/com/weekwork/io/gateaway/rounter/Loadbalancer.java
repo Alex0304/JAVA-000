@@ -7,11 +7,10 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
-import java.util.Random;
 
 public class Loadbalancer {
 
-    private static final String PATH = "D:\\code\\JAVA-000\\target\\classes\\server.properties";
+    private static final String PATH = "D:\\mycode\\jiketime\\JAVA-000\\target\\classes\\server.properties";
 
     private List<String> servers;
     private HttpEndpointRouter httpEndpointRouter;
