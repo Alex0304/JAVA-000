@@ -1,6 +1,7 @@
 package com.weekwork.io.gateaway.util;
 
 
+import cn.hutool.core.map.MapUtil;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -16,13 +17,13 @@ import java.util.Optional;
 public class HttpClientUtil {
     private static Logger logger = LoggerFactory.getLogger(HttpClientUtil.class);
 
-    private static final String REMOTE_HOST = "http://localhost:8080";
+    private static final String REMOTE_HOST = "http://127.0.0.1:8081";
 
     public static String get(String uri, Map<String,String> headers,String server) throws IOException {
 
         HttpClient client = HttpClientBuilder.create().build();
         HttpGet get = new HttpGet("http://"+server+uri);
-        Optional.ofNullable(headers).orElse(headers).entrySet().stream().forEach(e->{
+        Optional.ofNullable(headers).orElse(MapUtil.newHashMap()).entrySet().stream().forEach(e -> {
             get.setHeader(e.getKey(),e.getValue());
         });
         HttpResponse httpResponse = client.execute(get);
