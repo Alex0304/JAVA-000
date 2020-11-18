@@ -1,28 +1,35 @@
 package com.weekwork;
 
 
-import com.weekwork.config.GradeSelectorAutoConfig;
-import com.weekwork.config.PersonConfig;
-import com.weekwork.service.HelloService;
+import com.weekwork.entity.User;
+import com.weekwork.jdbc.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.ImportResource;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
-@ImportResource(value = "student.xml")
-@SpringBootApplication
 @RestController
-@Import({GradeSelectorAutoConfig.class, PersonConfig.class})
+@SpringBootApplication
 public class IOCApplication {
 
+    @Autowired
+    private UserService userService;
+
     public static void main(String[] args) {
-        SpringApplication.run(new Class[]{IOCApplication.class,HelloService.class},args);
-        System.out.println("xxxxx");
+        SpringApplication.run(IOCApplication.class);
+        System.out.println("hello ioc");
     }
 
 
 
+    @GetMapping("/user/{id}")
+    public User queryUserById(@PathVariable("id") Integer id){
+        return userService.selectUserById(id);
+    }
+
+    @PostMapping("/user/save")
+    public boolean queryUserById(@RequestBody User user){
+        return userService.saveUser(user);
+    }
 }
