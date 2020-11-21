@@ -13,7 +13,7 @@ public class HelloBeanFactoryPostProcessor implements BeanDefinitionRegistryPost
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry beanDefinitionRegistry) throws BeansException {
         final RootBeanDefinition rootBeanDefinition = new RootBeanDefinition(UserService.class);
         rootBeanDefinition.setInitMethodName("init");
-        beanDefinitionRegistry.registerBeanDefinition("userService",rootBeanDefinition);
+        beanDefinitionRegistry.registerBeanDefinition("userService1",rootBeanDefinition);
     }
 
     @Override

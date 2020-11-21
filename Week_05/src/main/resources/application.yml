@@ -3,6 +3,19 @@ server:
 spring:
   application:
     name: Week05
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/weekwork-test?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=round&useSSL=true
+    username: root
+    password: root
+    hikari:
+      connection-timeout: 20000
+      minimum-idle: 5
+      maximum-pool-size: 12
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      auto-commit: true
+      connection-test-query: select 1
 jdbc:
   username: root
   password: root
