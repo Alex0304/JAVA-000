@@ -1,4 +1,4 @@
-package com.weekwork.service;
+package com.weekwork.dynamic.service;
 
 import org.springframework.beans.factory.InitializingBean;
 

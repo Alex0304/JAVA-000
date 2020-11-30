@@ -1,4 +1,4 @@
-package com.weekwork.service;
+package com.weekwork.dynamic.service;
 
 public class StudentService {
 

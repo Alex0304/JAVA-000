@@ -1,8 +1,7 @@
-package com.weekwork.service;
+package com.weekwork.dynamic.service;
 
 
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 

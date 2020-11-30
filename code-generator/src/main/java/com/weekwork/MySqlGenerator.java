@@ -1,25 +1,19 @@
 package com.weekwork;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
-import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
-import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
-import com.baomidou.mybatisplus.generator.config.FileOutConfig;
-import com.baomidou.mybatisplus.generator.config.GlobalConfig;
-import com.baomidou.mybatisplus.generator.config.PackageConfig;
-import com.baomidou.mybatisplus.generator.config.StrategyConfig;
-import com.baomidou.mybatisplus.generator.config.TemplateConfig;
+import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import com.mysql.jdbc.Driver;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class MySqlGenerator {
     /**
@@ -73,17 +67,19 @@ public class MySqlGenerator {
         });
         cfg.addFileOutConfig(focList);
         StrategyConfig.Builder builder = new StrategyConfig.Builder();
-        StrategyConfig strategy = builder.addFieldPrefix("F")
+        StrategyConfig strategy = builder.addFieldPrefix("f")
                 .addTablePrefix("t_")
                 .addInclude(scanner("表名，多个英文逗号分割").split(","))
                 .entityBuilder().naming(NamingStrategy.underline_to_camel)
                 .columnNaming(NamingStrategy.underline_to_camel)
                 .superClass(BaseEntity.class)
                 .addSuperEntityColumns("id")
+                .booleanColumnRemoveIsPrefix(true)
                 .lombok(true)
                 .controllerBuilder().superClass(BaseController.class)
                 .hyphenStyle(true).build();
-        TemplateConfig.Builder tcb = new TemplateConfig.Builder();
+        strategy.entityBuilder().nameConvert(new MyNameConvert(strategy));
+        TemplateConfig.Builder tcb = new TemplateConfig.Builder().all();
         TemplateConfig tc = tcb.mapperXml(null).build();
         mpg.strategy(strategy)
                 .injection(cfg)
@@ -96,7 +92,7 @@ public class MySqlGenerator {
     }
 
 
-  /*  public static void main(String[] args) {
+    /*public static void main(String[] args) {
         // 代码生成器
         AutoGenerator mpg = new AutoGenerator();
 
@@ -155,7 +151,8 @@ public class MySqlGenerator {
         strategy.setSuperEntityColumns("id");
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix("t_");
-        strategy.setFieldPrefix("F");
+        strategy.setFieldPrefix("f");
+        strategy.setEntityBooleanColumnRemoveIsPrefix(true);
         mpg.setStrategy(strategy);
         // 选择 freemarker 引擎需要指定如下加，注意 pom 依赖必须有！
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());

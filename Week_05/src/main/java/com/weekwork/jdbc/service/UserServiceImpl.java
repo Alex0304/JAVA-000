@@ -3,7 +3,6 @@ package com.weekwork.jdbc.service;
 import com.google.common.eventbus.Subscribe;
 import com.weekwork.entity.Product;
 import com.weekwork.entity.User;
-import com.weekwork.exception.BusinessException;
 import com.weekwork.jdbc.dao.UserDao;
 import com.weekwork.transaction.MyTransactional;
 import lombok.extern.slf4j.Slf4j;

@@ -3,5 +3,5 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="studentService" class="com.weekwork.service.StudentService" init-method="init"></bean>
+    <bean id="studentService" class="com.weekwork.dynamic.service.StudentService" init-method="init"></bean>
 </beans>

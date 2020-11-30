@@ -3,7 +3,6 @@ package com.weekwork.jdbc.dao;
 
 import cn.hutool.core.collection.CollUtil;
 import com.weekwork.entity.User;
-import com.weekwork.jdbc.dao.UserDao;
 import com.weekwork.transaction.TransationUtils;
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.extern.slf4j.Slf4j;

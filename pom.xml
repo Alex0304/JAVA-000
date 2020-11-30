@@ -46,6 +46,7 @@
         <swagger2_version>2.7.0</swagger2_version>
         <fastjson_version>1.2.49</fastjson_version>
         <p6spy_version>3.8.5</p6spy_version>
+        <druid_version>1.1.9</druid_version>
     </properties>
 
     <dependencyManagement>
@@ -146,6 +147,11 @@
                 <artifactId>p6spy</artifactId>
                 <version>${p6spy_version}</version>
             </dependency>-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid_version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
