@@ -4,11 +4,11 @@ master:
     password: root
     url: jdbc:mysql://localhost:3306/test_master?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=round&useSSL=true
     driver-class-name: com.mysql.jdbc.Driver
-    type: com.zaxxer.hikari.HikariDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
 slave:
   datasource:
     username: root
     password: root
     url: jdbc:mysql://localhost:3306/test_slave?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=round&useSSL=true
     driver-class-name: com.mysql.jdbc.Driver
-    type: com.zaxxer.hikari.HikariDataSource
+    type: com.alibaba.druid.pool.DruidDataSource

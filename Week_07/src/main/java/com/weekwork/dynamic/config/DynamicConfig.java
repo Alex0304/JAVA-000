@@ -1,7 +1,7 @@
 package com.weekwork.dynamic.config;
 
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
-import com.weekwork.dynamic.DynamicDatasource;
+import com.weekwork.dynamic.datasource.DynamicDatasource;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 public class DynamicConfig {
 
     @Bean(name = "dataSource")
-    public DataSource datasource(@Qualifier("masterDataSource") DataSource masterDataSource, @Qualifier("slaveDatasource") DataSource slaveDatasource) {
+    public DataSource dataSource(@Qualifier("masterDataSource") DataSource masterDataSource, @Qualifier("slaveDatasource") DataSource slaveDatasource) {
         DynamicDatasource dynamicDatasource = new DynamicDatasource();
         return dynamicDatasource.setMasterDatasource(masterDataSource).setSlaveDatasource(slaveDatasource);
     }
@@ -25,13 +25,15 @@ public class DynamicConfig {
     @Bean(name = "masterDataSource")
     @ConfigurationProperties("master.datasource")
     public DataSource masterDataSource() {
-        return DruidDataSourceBuilder.create().build();
+        return
+                DruidDataSourceBuilder.create().build();
     }
 
     @Bean(name = "slaveDatasource")
     @ConfigurationProperties("slave.datasource")
     public DataSource slaveDatasource() {
-        return DruidDataSourceBuilder.create().build();
+        return
+                DruidDataSourceBuilder.create().build();
     }
 
     @Bean

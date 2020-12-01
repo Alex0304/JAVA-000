@@ -1,8 +1,7 @@
-package com.weekwork;
+package com.weekwork.dynamic.datasource;
 
 
 import cn.hutool.core.thread.threadlocal.NamedThreadLocal;
-import com.weekwork.dynamic.SqlOpreateTypeEnum;
 
 /**
  * 保存当前线程的sql操作类型

@@ -1,7 +1,6 @@
-package com.weekwork.dynamic;
+package com.weekwork.dynamic.datasource;
 
 import cn.hutool.core.map.MapUtil;
-import com.weekwork.GlobalSqlOpreateTypeHolder;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 import javax.sql.DataSource;
