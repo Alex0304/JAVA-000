@@ -15,3 +15,30 @@ slave:
     url: jdbc:mysql://localhost:3306/test_slave?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=round&useSSL=true
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
+
+datasources:
+  master:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo_ds_master?serverTimezone=UTC&useSSL=true&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+  slave1:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo_ds_slave_1?serverTimezone=UTC&useSSL=true&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+  slave2:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo_ds_slave_2?serverTimezone=UTC&useSSL=true&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+masterSlaveRule:
+  name: ds_ms
+  masterDataSourceName: ds_master
+  slaveDataSourceNames: [ds_slave_0, ds_slave_1]
+
+props:
+  sql.show: false

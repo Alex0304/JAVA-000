@@ -3,11 +3,10 @@ package com.weekwork.common;
 
 import com.weekwork.dynamic.aop.Read;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
-@Service
+//@Service
 public class UserServiceImpl implements UserService {
     private static final String QUERY_SQL = "SELECT username from t_user where id = ?";
 
@@ -24,6 +23,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int saveUser(User user) {
-        return jdbcTemplate.update(INSERT_SQL, new Object[]{user.getUsername(), user.getPassword()});
+        return jdbcTemplate.update(INSERT_SQL, new Object[]{user.getUserName(), user.getPwd()});
     }
 }
