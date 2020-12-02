@@ -1,4 +1,4 @@
-package com.weekwork.dynamic.aop;
+package com.weekwork.rawJdbc.dynamic.aop;
 
 
 import java.lang.annotation.*;

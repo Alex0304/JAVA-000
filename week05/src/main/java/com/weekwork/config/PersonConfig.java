@@ -1,6 +1,6 @@
 package com.weekwork.config;
 
-import com.weekwork.dynamic.service.PersonService;
+import com.weekwork.rawJdbc.dynamic.service.PersonService;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;

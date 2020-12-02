@@ -1,4 +1,4 @@
-package com.weekwork.dynamic.datasource;
+package com.weekwork.rawJdbc.dynamic.datasource;
 
 import cn.hutool.core.map.MapUtil;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;

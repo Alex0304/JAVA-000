@@ -1,6 +1,6 @@
 package com.weekwork.config;
 
-import com.weekwork.dynamic.service.UserService;
+import com.weekwork.rawJdbc.dynamic.service.UserService;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;

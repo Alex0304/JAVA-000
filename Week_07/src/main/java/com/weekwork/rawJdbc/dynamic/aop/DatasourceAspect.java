@@ -1,8 +1,8 @@
-package com.weekwork.dynamic.aop;
+package com.weekwork.rawJdbc.dynamic.aop;
 
 
-import com.weekwork.dynamic.datasource.GlobalSqlOpreateTypeHolder;
-import com.weekwork.dynamic.datasource.SqlOpreateTypeEnum;
+import com.weekwork.rawJdbc.dynamic.datasource.GlobalSqlOpreateTypeHolder;
+import com.weekwork.rawJdbc.dynamic.datasource.SqlOpreateTypeEnum;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;

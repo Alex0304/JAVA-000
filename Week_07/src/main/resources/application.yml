@@ -35,10 +35,3 @@ datasources:
     username: root
     password: root
     type: com.alibaba.druid.pool.DruidDataSource
-masterSlaveRule:
-  name: ds_ms
-  masterDataSourceName: ds_master
-  slaveDataSourceNames: [ds_slave_0, ds_slave_1]
-
-props:
-  sql.show: false

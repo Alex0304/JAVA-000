@@ -1,6 +1,16 @@
-package com.weekwork.dynamic.config;
+package com.weekwork.rawJdbc.dynamic.config;
 
-/*
+import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
+import com.weekwork.rawJdbc.dynamic.datasource.DynamicDatasource;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import javax.sql.DataSource;
+
 @Configuration
 @PropertySource(value = "classpath:/jdbc-dynamic-datasource.yml", encoding = "UTF-8")
 public class DynamicConfig {
@@ -29,4 +39,4 @@ public class DynamicConfig {
     public JdbcTemplate jdbcTemplate(@Qualifier("dataSource") DataSource dataSource) {
         return new JdbcTemplate(dataSource);
     }
-}*/
+}

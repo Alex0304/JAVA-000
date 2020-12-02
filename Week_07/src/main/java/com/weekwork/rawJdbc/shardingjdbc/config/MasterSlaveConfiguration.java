@@ -15,15 +15,14 @@
  * limitations under the License.
  */
 
-package com.weekwork.shardingjdbc.config;
+package com.weekwork.rawJdbc.shardingjdbc.config;
 
 
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
-import com.weekwork.shardingjdbc.AddressRepository;
-import com.weekwork.shardingjdbc.ExampleService;
-import com.weekwork.shardingjdbc.OrderItemRepository;
-import com.weekwork.shardingjdbc.OrderRepository;
-import com.weekwork.shardingjdbc.impl.OrderServiceImpl;
+import com.weekwork.rawJdbc.shardingjdbc.repository.AddressRepository;
+import com.weekwork.rawJdbc.shardingjdbc.repository.OrderItemRepository;
+import com.weekwork.rawJdbc.shardingjdbc.repository.OrderRepository;
+import com.weekwork.rawJdbc.shardingjdbc.service.impl.OrderServiceImpl;
 import org.apache.shardingsphere.api.config.masterslave.MasterSlaveRuleConfiguration;
 import org.apache.shardingsphere.shardingjdbc.api.MasterSlaveDataSourceFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -73,8 +72,8 @@ public class MasterSlaveConfiguration {
         return DruidDataSourceBuilder.create().build();
     }
 
-    @Bean(name = "exampleService")
-    public ExampleService exampleService(OrderRepository orderRepository, OrderItemRepository orderItemRepository, AddressRepository addressRepository) throws SQLException {
+    @Bean(name = "orderService")
+    public OrderServiceImpl orderService(OrderRepository orderRepository, OrderItemRepository orderItemRepository, AddressRepository addressRepository) throws SQLException {
         OrderServiceImpl orderService = new OrderServiceImpl(orderRepository, orderItemRepository, addressRepository);
         orderService.initEnvironment();
         return orderService;

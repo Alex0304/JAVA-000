@@ -1,4 +1,4 @@
-package com.weekwork.dynamic.service;
+package com.weekwork.rawJdbc.dynamic.service;
 
 import org.springframework.beans.factory.InitializingBean;
 

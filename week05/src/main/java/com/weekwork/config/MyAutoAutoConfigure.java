@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ImportResource;
 
 @ImportResource(value = "classpath*:/student.xml")
 @Import({PersonConfig.class,SchoolConfig.class,UserConfig.class,GradeSelectorAutoConfig.class})
-@ComponentScan(basePackages = "com.weekwork.dynamic.service")
+@ComponentScan(basePackages = "com.weekwork.rawJdbc.dynamic.service")
 public class MyAutoAutoConfigure {
 
 }
