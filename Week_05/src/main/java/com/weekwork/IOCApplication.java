@@ -1,7 +1,7 @@
 package com.weekwork;
 
 
-import com.weekwork.entity.User;
+import com.weekwork.common.entity.User;
 import com.weekwork.jdbc.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;

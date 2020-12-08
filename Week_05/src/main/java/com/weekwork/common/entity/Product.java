@@ -1,4 +1,4 @@
-package com.weekwork.entity;
+package com.weekwork.common.entity;
 
 
 import lombok.Data;

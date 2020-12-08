@@ -19,6 +19,7 @@
         <module>Week_01</module>
         <module>Week_06</module>
         <module>Week_07</module>
+        <module>Week_08</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

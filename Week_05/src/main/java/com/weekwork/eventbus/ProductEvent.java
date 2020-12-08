@@ -1,6 +1,6 @@
 package com.weekwork.eventbus;
 
-import com.weekwork.entity.Product;
+import com.weekwork.common.entity.Product;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.experimental.Accessors;

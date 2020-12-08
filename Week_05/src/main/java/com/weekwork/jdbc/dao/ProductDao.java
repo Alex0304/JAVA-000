@@ -1,6 +1,6 @@
 package com.weekwork.jdbc.dao;
 
-import com.weekwork.entity.Product;
+import com.weekwork.common.entity.Product;
 import com.weekwork.proxy.MySelect;
 
 import java.util.List;

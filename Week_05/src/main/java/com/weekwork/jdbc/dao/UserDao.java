@@ -1,6 +1,6 @@
 package com.weekwork.jdbc.dao;
 
-import com.weekwork.entity.User;
+import com.weekwork.common.entity.User;
 
 public interface UserDao {
 

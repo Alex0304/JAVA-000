@@ -1,7 +1,7 @@
 package com.weekwork.jdbc.service;
 
-import com.weekwork.entity.Product;
-import com.weekwork.entity.User;
+import com.weekwork.common.entity.Product;
+import com.weekwork.common.entity.User;
 
 public interface UserService {
 

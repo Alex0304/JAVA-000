@@ -2,7 +2,7 @@ package com.weekwork.jdbc.service;
 
 
 import com.google.common.eventbus.EventBus;
-import com.weekwork.entity.Product;
+import com.weekwork.common.entity.Product;
 import com.weekwork.eventbus.ProductEvent;
 import com.weekwork.jdbc.dao.ProductDao;
 import com.zaxxer.hikari.HikariDataSource;
