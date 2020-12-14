@@ -1,8 +1,8 @@
-package com.weekwork;
+package com;
 
 
-import com.weekwork.common.Order;
-import com.weekwork.common.OrderService;
+import com.common.Order;
+import com.common.OrderService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.weekwork;
+package com;
 
 
 import org.mybatis.spring.annotation.MapperScan;

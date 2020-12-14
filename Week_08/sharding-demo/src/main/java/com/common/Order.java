@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.weekwork.common;
+package com.common;
 
 import java.io.Serializable;
 

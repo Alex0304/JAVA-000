@@ -1,4 +1,4 @@
-package com.weekwork.common;
+package com.common;
 
 
 import org.springframework.stereotype.Service;

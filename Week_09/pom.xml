@@ -9,11 +9,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
-    <artifactId>Week_08</artifactId>
+    <artifactId>Week_09</artifactId>
     <modules>
-        <module>sharding-demo</module>
-        <module>seata-demo</module>
-        <module>hmily-demo</module>
+        <module>rpc-api</module>
+        <module>rpc-consumer</module>
+        <module>rpc-core</module>
+        <module>rpc-provider</module>
+        <module>dubbo-consumer-demo</module>
+        <module>dubbo-provider-demo</module>
+        <module>hmily-dubbo-demo</module>
     </modules>
     <dependencies>
         <!--<dependency>

@@ -1,4 +1,4 @@
-package com.weekwork.common;
+package com.common;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
