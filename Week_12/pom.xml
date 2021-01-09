@@ -9,12 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
-    <artifactId>Week_08</artifactId>
-    <modules>
-        <module>sharding-demo</module>
-        <module>seata-demo</module>
-        <module>hmily-demo</module>
-    </modules>
+    <artifactId>Week_12</artifactId>
     <dependencies>
         <!--<dependency>
             <groupId>com.weekwork</groupId>
@@ -63,10 +58,10 @@
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
         </dependency>-->
-       <!-- <dependency>
-            <groupId>org.apache.shardingsphere</groupId>
-            <artifactId>sharding-jdbc-core</artifactId>
-        </dependency>-->
+        <!-- <dependency>
+             <groupId>org.apache.shardingsphere</groupId>
+             <artifactId>sharding-jdbc-core</artifactId>
+         </dependency>-->
         <dependency>
             <groupId>org.apache.shardingsphere</groupId>
             <artifactId>sharding-jdbc-spring-boot-starter</artifactId>

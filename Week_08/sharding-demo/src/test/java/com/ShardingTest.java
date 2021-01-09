@@ -55,4 +55,10 @@ public class ShardingTest {
         orderService.saveUser(order4);
         orderService.saveUser(order5);
     }
+
+    @Test
+    public void test4() {
+        final List<Order> orders = orderService.queryOrders();
+        Optional.ofNullable(orders).orElse(new ArrayList<>()).stream().forEach(e -> System.out.println(e.getOrderId()));
+    }
 }
