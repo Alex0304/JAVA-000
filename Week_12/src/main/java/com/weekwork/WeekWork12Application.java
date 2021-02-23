@@ -17,4 +17,8 @@ public class WeekWork12Application {
     public void test() {
         System.out.println("cherry pick test1.1");
     }
+
+    public void test2() {
+        System.out.println("cherry pick test1.2");
+    }
 }
