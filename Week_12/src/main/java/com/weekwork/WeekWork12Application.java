@@ -9,5 +9,6 @@ public class WeekWork12Application {
 
     public static void main(String[] args) {
         SpringApplication.run(WeekWork12Application.class);
+        System.out.println("git branch test");
     }
 }
