@@ -11,4 +11,8 @@ public class WeekWork12Application {
         SpringApplication.run(WeekWork12Application.class);
         System.out.println("git branch test v1.1");
     }
+    
+    public void test() {
+        System.out.println("cherry pick test1.1");
+    }
 }
