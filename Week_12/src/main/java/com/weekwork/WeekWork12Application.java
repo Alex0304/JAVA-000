@@ -9,7 +9,8 @@ public class WeekWork12Application {
 
     public static void main(String[] args) {
         SpringApplication.run(WeekWork12Application.class);
-        System.out.println("git branch test");
+        System.out.println("git branch test v1.1");
+        System.out.println("git branch test v1.0 finished");
     }
 
     public void test() {
